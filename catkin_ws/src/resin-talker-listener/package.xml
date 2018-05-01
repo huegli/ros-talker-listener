@@ -1,8 +1,8 @@
 <?xml version="1.0"?>
 <package>
-  <name>resin_talker_listener</name>
+  <name>resin-talker-listener</name>
   <version>0.0.1</version>
-  <description>The resin_talker_listener package</description>
+  <description>The resin-talker-listener package</description>
 
   <!-- One maintainer tag required, multiple allowed, one person per tag --> 
   <!-- Example:  -->
