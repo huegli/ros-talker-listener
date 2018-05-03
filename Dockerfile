@@ -2,7 +2,7 @@ FROM resin/rpi-raspbian:jessie
 
 RUN echo "deb http://packages.ros.org/ros/ubuntu xenial main" > /etc/apt/sources.list.d/ros-latest.list
 RUN apt-key adv --keyserver hkp://ha.pool.sks-keyservers.net:80 --recv-key 421C365BD9FF1F717815A3895523BAEEB01FA116
-RUN apt-get update && apt-get -y install python-rosdep python-rosinstall-generator python-wstool python-rosinstall build-essential cmake wget unzip
+RUN apt-get update && apt-get -y install python-rosdep python-rosinstall-generator python-wstool python-rosinstall build-essential cmake wget unzip avahi-tools libnss-mdnss && apt-get clean && rm -rf /var/lib/apt/lists/*
 
 COPY . /ros
 WORKDIR /ros/catkin_ws
