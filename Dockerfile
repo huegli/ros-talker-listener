@@ -5,7 +5,7 @@ ENV INITSYSTEM on
 
 RUN echo "deb http://packages.ros.org/ros/ubuntu xenial main" > /etc/apt/sources.list.d/ros-latest.list
 RUN apt-key adv --keyserver hkp://ha.pool.sks-keyservers.net:80 --recv-key 421C365BD9FF1F717815A3895523BAEEB01FA116
-RUN apt-get update && apt-get -y install python-rosdep python-rosinstall-generator python-wstool python-rosinstall build-essential cmake wget unzip avahi-utils libnss-mdns
+RUN apt-get update && apt-get -y install python-rosdep python-rosinstall-generator python-wstool python-rosinstall build-essential cmake wget unzip vim-nox git tmux avahi-utils libnss-mdns
 
 COPY . /ros
 WORKDIR /ros/catkin_ws
