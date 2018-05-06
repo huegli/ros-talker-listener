@@ -16,7 +16,7 @@ ENV DBUS_SYSTEM_BUS_ADDRESS=unix:path=/host/run/dbus/system_bus_socket
 RUN rosinstall_generator ros_comm ros_control joystick_drivers --rosdistro kinetic --deps --wet-only --tar > kinetic-ros_custom-wet.rosinstall
 RUN wstool init src kinetic-ros_custom-wet.rosinstall
 WORKDIR /ros/catkin_ws/external_src
-RUN wget http://sourceforge.net/projects/assimp/files/assimp-3.1/assimp-3.1.1_no_test_models.zip/download -O assimp-3.1.1_no_test_models.zip && unzip assimp-3.1.1_no_test_models.zip
+RUN unzip assimp-3.1.1_no_test_models.zip
 WORKDIR /ros/catkin_ws/external_src/assimp-3.1.1
 RUN cmake . && make && make install
 WORKDIR /ros/catkin_ws
