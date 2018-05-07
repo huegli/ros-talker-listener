@@ -11,6 +11,6 @@ ln -s dotfiles/vimrc .vimrc
 ln -s dotfiles/dir_colors .dir_colors
 ln -s dotfiles/tmux.conf .tmux.conf
 
-roscore &
+roscore
 # sleep 3
 # avahi-browse -a | grep IPv4

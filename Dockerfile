@@ -7,7 +7,7 @@ RUN echo "deb http://packages.ros.org/ros/ubuntu xenial main" > /etc/apt/sources
 RUN apt-key adv --keyserver hkp://ha.pool.sks-keyservers.net:80 --recv-key 421C365BD9FF1F717815A3895523BAEEB01FA116
 RUN apt-get update && apt-get -y install python-rosdep python-rosinstall-generator python-wstool python-rosinstall build-essential cmake wget unzip vim-nox git tmux avahi-utils libnss-mdns
 
-COPY . /ros
+COPY catkin_ws /ros/catkin_ws
 WORKDIR /ros/catkin_ws
 ENV DBUS_SYSTEM_BUS_ADDRESS=unix:path=/host/run/dbus/system_bus_socket
 
@@ -25,6 +25,8 @@ RUN rosdep install -y --from-paths src --ignore-src --rosdistro kinetic -r --os=
 RUN ./src/catkin/bin/catkin_make_isolated --install -DCMAKE_BUILD_TYPE=Release --install-space /opt/ros/kinetic
 RUN echo source /opt/ros/kinetic/setup.bash >> ~/.bashrc
 RUN apt-get clean && rm -rf /var/lib/apt/lists/*
+
+COPY start.sh /ros/start.sh
 
 CMD [ "/bin/bash", "/ros/start.sh" ]
 
