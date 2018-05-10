@@ -5,6 +5,8 @@ echo 127.0.0.1 `hostname` >> /etc/hosts
 # Start up the ROS server
 source /opt/ros/kinetic/setup.bash
 
+cd /root
+
 git clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim
 git clone https://github.com/huegli/dotfiles
 ln -s dotfiles/vimrc .vimrc

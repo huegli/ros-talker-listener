@@ -26,6 +26,7 @@ RUN ./src/catkin/bin/catkin_make_isolated --install -DCMAKE_BUILD_TYPE=Release -
 RUN echo source /opt/ros/kinetic/setup.bash >> ~/.bashrc
 RUN apt-get clean && rm -rf /var/lib/apt/lists/*
 
+COPY my_ws /ros/my_ws
 COPY start.sh /ros/start.sh
 
 CMD [ "/bin/bash", "/ros/start.sh" ]
