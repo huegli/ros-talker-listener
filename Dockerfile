@@ -22,7 +22,7 @@ RUN cmake . && make && make install
 WORKDIR /ros/catkin_ws
 RUN rosdep init && rosdep update
 RUN rosdep install -y --from-paths src --ignore-src --rosdistro kinetic -r --os=debian:jessie
-RUN ./src/catkin/bin/catkin_make_isolated --install -DCMAKE_BUILD_TYPE=Release --install-space /opt/ros/kinetic -j2
+RUN ./src/catkin/bin/catkin_make_isolated --install -DCMAKE_BUILD_TYPE=Release --install-space /opt/ros/kinetic
 RUN echo source /opt/ros/kinetic/setup.bash >> ~/.bashrc
 RUN apt-get clean && rm -rf /var/lib/apt/lists/*
 
