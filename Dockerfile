@@ -13,7 +13,7 @@ ENV DBUS_SYSTEM_BUS_ADDRESS=unix:path=/host/run/dbus/system_bus_socket
 
 # Install ROS following instructions here:
 # http://wiki.ros.org/ROSberryPi/Installing%20ROS%20Kinetic%20on%20the%20Raspberry%20Pi
-RUN rosinstall_generator ros_comm ros_control joystick_drivers --rosdistro kinetic --deps --wet-only --tar > kinetic-ros_custom-wet.rosinstall
+RUN rosinstall_generator ros_comm ros_control joystick_drivers rosbridge_suite --rosdistro kinetic --deps --wet-only --tar > kinetic-ros_custom-wet.rosinstall
 RUN wstool init src kinetic-ros_custom-wet.rosinstall
 WORKDIR /ros/catkin_ws/external_src
 RUN unzip assimp-3.1.1_no_test_models.zip
