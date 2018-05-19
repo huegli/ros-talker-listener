@@ -5,9 +5,6 @@ echo 127.0.0.1 `hostname` >> /etc/hosts
 # Start up the ROS server
 source /opt/ros/kinetic/setup.bash
 
-cd /ros/my_ws
-catkin_make
-
 cd ~
 
 git clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim
@@ -21,6 +18,9 @@ echo "export TERM=xterm-256color" >> ~/.bashrc
 
 export TERM=xterm-256color
 vim +PluginInstall +qall
+
+cd /ros/my_ws
+catkin_make
 
 roscore
 # sleep 3
