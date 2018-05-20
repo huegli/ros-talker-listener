@@ -22,6 +22,11 @@ vim +PluginInstall +qall
 cd /ros/my_ws
 catkin_make
 
+#Set the root password as root if not set as an ENV variable
+export PASSWD=${PASSWD:=root}
+#Set the root password
+echo "root:$PASSWD" | chpasswd
+
 roscore
 # sleep 3
 # avahi-browse -a | grep IPv4
