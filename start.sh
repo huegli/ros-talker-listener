@@ -1,5 +1,9 @@
 #!/bin/bash
 
+# stop unnecessary stuff
+systemctl stop spacenavd
+systemctl stop bluetooth
+
 echo 127.0.0.1 `hostname` >> /etc/hosts
 
 # Start up the ROS server

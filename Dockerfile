@@ -2,6 +2,8 @@ FROM resin/rpi-raspbian:jessie
 
 #switch on systemd init system in container
 ENV INITSYSTEM on
+# expose DBUS insid container
+ENV DBUS_SYSTEM_BUS_ADDRESS=unix:path=/host/run/dbus/system_bus_socket
 
 RUN echo "deb http://packages.ros.org/ros/ubuntu xenial main" > /etc/apt/sources.list.d/ros-latest.list
 RUN apt-key adv --keyserver hkp://ha.pool.sks-keyservers.net:80 --recv-key 421C365BD9FF1F717815A3895523BAEEB01FA116
@@ -9,7 +11,6 @@ RUN apt-get update && apt-get -y install python-rosdep python-rosinstall-generat
 
 COPY catkin_ws /ros/catkin_ws
 WORKDIR /ros/catkin_ws
-ENV DBUS_SYSTEM_BUS_ADDRESS=unix:path=/host/run/dbus/system_bus_socket
 
 # Install ROS following instructions here:
 # http://wiki.ros.org/ROSberryPi/Installing%20ROS%20Kinetic%20on%20the%20Raspberry%20Pi
