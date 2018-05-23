@@ -32,5 +32,13 @@ export PASSWD=${PASSWD:=root}
 echo "root:$PASSWD" | chpasswd
 
 roscore
+
+while :
+do
+    curl -X GET --header "Content-Type:application/json" \
+        "$RESIN_SUPERVISOR_ADDRESS/ping?apikey=$RESIN_SUPERVISOR_API_KEY"
+    sleep 60
+done
+
 # sleep 3
 # avahi-browse -a | grep IPv4
